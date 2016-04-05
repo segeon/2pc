@@ -97,18 +97,21 @@ When the participants receive the decision, they will act accordingly.
 
 ## How Various Abnormal Situations are Handled
 1. If a participant votes Yes and goes down after sending Yes to the transaction manager, then how will this participant  
-resolve the final decision?
+resolve the final decision?  
+
 The participant uses cooperative termination protocol to resolve the final decision. That is, it first ask its peer
 participant for the final decision. If the peers don't know the decision neither, it will consult the transaction manager.
 
-2. How servers recover from crashes?
+2. How servers recover from crashes?  
+
 Server states are stored in persistent db, so that when come back from crash, the servers can recover their state and
 resolve the undecided transactions with cooperative termination protocol. 
 
 3. Suppose we are transferring 2000 RMB from BOC account A (with balance 2000 RMB) to CCB account B. During the vote phase,  
 BOC checks account A and votes Yes as there is enough balance. However, while BOC is waiting for the transaction manager's
  decision, others may deduct 1000 RMB from account. So when BOC receives the transaction manager's Commit decision, it
-can't do commit because there is not enough balance. How this situation is handled?
+can't do commit because there is not enough balance. How this situation is handled?  
+
 During the voting phase, BOC will freeze the requested transferring amount of money, so that others can not use. At the
 decision phase, the frozen money will be unfrozen and deducted.
     
