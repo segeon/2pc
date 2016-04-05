@@ -28,7 +28,14 @@ connecting to the Mysql server.
 
 3. Create 4 databases, bank_boc, bank_ccb, cbrc and transaction_manager and grant all privileges needed to create 
 tables, query and update records to the 'test' user we've just created.
- 
+
+Then you need to build the project. You can make use of the build.sh script.
+
+    ./build.sh
+    
+It will compile the project, package each demo application into a stand-alone executable jar and copy them into the 
+quickstart/jar directory.
+
 Now we are ready to start the demo applications using the shell script.
 
     cd quickstart/sh  
@@ -55,12 +62,6 @@ When you finish your test, use the stop.sh script to stop all the servers.
     
     ./stop.sh servers
     
-If you want to build the project, you can make use of the build.sh script.
-
-    ./build.sh
-    
-It will compile the project, package each demo application into a stand-alone executable jar and copy them into the 
-quickstart/jar directory.
 
 ## Customize Mysql Connection Address and Server Listening Port
 If you want to change the Mysql server that a demo application connects to and change the default http listening port,
